@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/teams/{team}', 'TeamsController@show');
+Route::get('/teams/{team}/projects/{project}', 'ProjectsController@show');

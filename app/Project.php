@@ -18,6 +18,6 @@ class Project extends Model
 
     public function path()
     {
-        return '/' . $this->team->id . '/projects/' . $this->id;
+        return '/teams/' . $this->team->id . '/projects/' . $this->id;
     }
 }
