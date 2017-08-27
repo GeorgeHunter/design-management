@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
+    public function projects()
+    {
+        //
+    }
+
     public function path()
     {
         return '/teams/' . $this->id;
