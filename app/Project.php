@@ -16,8 +16,13 @@ class Project extends Model
         return $this->belongsTo('App\Team');
     }
 
+    public function files()
+    {
+        return $this->hasMany('App\File');
+    }
+
     public function path()
     {
-        return '/teams/' . $this->team->id . '/projects/' . $this->id;
+        return '/projects/' . $this->id;
     }
 }

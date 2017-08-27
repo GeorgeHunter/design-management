@@ -20,13 +20,29 @@
 
                     <div>
 
-                        You are a member of the following teams:
+                        {{--You are a member of the following teams:--}}
 
-                        <ul>
-                            @foreach ( auth()->user()->teams as $team)
-                                <li><a href="{{ $team->path() }}">{{ $team->name }}</a></li>
-                            @endforeach
-                        </ul>
+                        {{--<ul>--}}
+                            {{--@foreach ( $teams as $team)--}}
+                                {{--<li><a href="{{ $team->path() }}">{{ $team->name }}</a></li>--}}
+                            {{--@endforeach--}}
+                        {{--</ul>--}}
+
+                        Project List:
+
+{{--                        {{ auth()->user()->teams->cl }}--}}
+
+
+
+                        @foreach($clients as $client)
+                            <h3>{{ $client->client_details_id }}</h3>
+                            <ul>
+                                @foreach ($client->projects as $project)
+                                    <li><a href="{{ $project->path() }}">{{ $project->project_code }}</a></li>
+                                @endforeach
+                            </ul>
+
+                        @endforeach
 
 
                     </div>

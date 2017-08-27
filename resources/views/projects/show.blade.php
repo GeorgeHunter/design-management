@@ -11,7 +11,11 @@
                 Files
             </div>
             <div class="panel-body">
-                here
+                <div class="list-group">
+                    @foreach ($project->files as $file)
+                        <a href="{{ $file->path() }}" class="list-group-item">{{ $file->name }} - {{ $file->description }}</a>
+                    @endforeach
+                </div>
             </div>
         </div>
 
