@@ -22,3 +22,4 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/projects/{project}', 'ProjectsController@show');
 Route::get('/files/{file}', 'FilesController@show');
+Route::post('/files/new', 'FilesController@store');
