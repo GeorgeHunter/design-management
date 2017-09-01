@@ -21,4 +21,9 @@ class Team extends Model
     {
         return $this->hasMany('App\Client');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

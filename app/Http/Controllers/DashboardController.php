@@ -10,7 +10,6 @@ class DashboardController extends Controller
     public function __construct(Request $request)
     {
         $this->middleware('auth');
-        $this->middleware('CheckTeam');
     }
 
     public function index(Request $request)
