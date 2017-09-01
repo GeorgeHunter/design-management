@@ -94,8 +94,10 @@
     <div class="modal fade" id="settings-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form method="POST" action="/file-version/new" enctype="multipart/form-data">
+                <form method="POST" action="/files/settings/{{ $file->id }}">
                     {{ csrf_field() }}
+
+                    {{ method_field('patch') }}
 
                     @if ($errors->any())
                         <script>
@@ -116,18 +118,10 @@
                             @endforeach
                         </ul>
 
-                        <div class="form-group">
-                            <label for="identifier">Identifier</label>
-                            @if (old('identifier'))
-                                <input type="text" class="form-control" name="identifier" id="identifier" placeholder="Identifier" value="{{ old('identifier') }}">
-                            @else
-                                <input type="text" class="form-control" name="identifier" id="identifier" placeholder="Identifier" value="{{ $next_version }}">
-                            @endif
-                        </div>
 
                         <div class="form-group">
-                            <label for="design-file">Upload your file</label>
-                            <input type="file" id="design-file" name="design-file" class="form-control">
+                            <label for="default_prefix">Default File Prefix</label>
+                            <input type="text" id="default_prefix" name="default_prefix" class="form-control" value="{{ $file->default_prefix }}">
                         </div>
                         <input type="hidden" name="file-id" value="{{ $file->id }}">
                     </div>

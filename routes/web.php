@@ -22,5 +22,6 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/projects/{project}', 'ProjectsController@show');
 Route::get('/files/{file}', 'FilesController@show');
+Route::patch('/files/settings/{file}', 'FileSettingsController@update');
 Route::post('/files/new', 'FilesController@store');
 Route::post('/file-version/new', 'FileVersionsController@store');
