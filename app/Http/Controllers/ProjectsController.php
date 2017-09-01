@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show(Project $project)
     {
         if (auth()->user()->current_team != $project->team_id) {

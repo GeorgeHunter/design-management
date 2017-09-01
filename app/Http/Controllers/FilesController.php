@@ -22,7 +22,23 @@ class FilesController extends Controller
         }
 
         $versions = FileVersion::latest()->where('file_id', $file->id)->get();
-        return view('files.show', compact('file', 'versions'));
+
+        $next_version = count($versions) + 1;
+
+        if ($next_version < 10) {
+            $next_version = '00' . $next_version;
+        } elseif ($next_version < 100) {
+            $next_version = '0' . $next_version;
+        }
+
+        $prefix = $file->default_prefix;
+
+        $prefix = $prefix ? $prefix : strtoupper(substr($file->name,0, 3));
+
+        $next_version = $prefix . '-' . $next_version;
+//        $next_version = $prefix . '-' . $next_version;
+
+        return view('files.show', compact('file', 'versions', 'next_version'));
     }
 
     public function store(Request $request)

@@ -11,12 +11,10 @@ class FileVersionsController extends Controller
     public function store(Request $request)
     {
 
-
         $file_version = new FileVersion;
 
         $request->validate([
             'identifier' => 'required',
-            'path' => 'required'
         ]);
 
         $file = File::find(request('file-id'));
@@ -34,7 +32,7 @@ class FileVersionsController extends Controller
 
         $file_version->save();
 
-        return $path;
+        return back();
 
     }
 }

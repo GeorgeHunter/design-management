@@ -18,6 +18,7 @@ class CreateFilesTable extends Migration
             $table->integer('project_id');
             $table->string('name');
             $table->text('description')->nullable();
+            $table->text('default_prefix')->nullable();
             $table->timestamps();
         });
     }
