@@ -8,6 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.moment = require('moment');
+window.pluralize = require('pluralize');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,7 +17,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('version', require('./components/Version.vue'));
 
 const app = new Vue({
     el: '#app'

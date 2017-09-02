@@ -25,6 +25,8 @@ Route::get('/files/{file}', 'FilesController@show');
 Route::patch('/files/settings/{file}', 'FileSettingsController@update');
 Route::post('/files/new', 'FilesController@store');
 Route::post('/file-version/new', 'FileVersionsController@store');
+Route::delete('/file-version/delete/{file}', 'FileVersionsController@destroy');
 Route::get('/team', 'TeamsController@create');
 Route::post('/team', 'TeamsController@store');
 Route::post('/clients', 'ClientsController@store');
+Route::post('/projects', 'ProjectsController@store');

@@ -21,4 +21,18 @@ class ProjectsController extends Controller
 
         return view('projects.show', compact('project'));
     }
+    
+    public function store()
+    {
+        $project = new Project;
+
+        $project->project_code= request('project-code');
+        $project->client_id = request('client-id');
+        $project->team_id = auth()->user()->current_team;
+        $project->status = 1;
+
+        $project->save();
+
+        return redirect("/projects/$project->id");
+    }
 }

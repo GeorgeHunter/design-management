@@ -5,10 +5,15 @@
     <div class="container">
 
         <div class="level spread">
-            <h3 style="margin: 0;">{{ $file->name }}</h3>
+            <h3 style="margin: 0;">
+                <a href="/dashboard">{{ $file->project->client->client_details_id }}</a> -
+                <a href="{{ $file->project->path() }}">{{ $file->project->project_code }}</a> -
+                {{ $file->name }}
+            </h3>
             <button type="button" class="btn btn-link" aria-label="Right Align" data-toggle="modal" data-target="#settings-modal">
                 <span class="glyphicon glyphicon-cog" style="font-size: 2em;" aria-hidden="true"></span>
-            </button>        </div>
+            </button>
+        </div>
         <h4 style="margin-bottom: 40px;">{{ $file->description }}</h4>
 
 
@@ -26,12 +31,7 @@
                     @forelse($versions as $version)
 
                         {{--                <div class="list-group-item">{{ $version->identifier }} - {{ $version->status }} - <a href="{{ $version->path() }}">Download</a></div>--}}
-                        <div class="list-group-item level spread">
-                            <div>{{ $version->identifier }} - {{ $version->status }}</div>
-                            <a href="/files/fhw68hliihnMFWmdDCpbwEcqBpbOOZ9I5ElLzHfj">
-                                <span class="glyphicon glyphicon-download-alt"></span>
-                            </a>
-                        </div>
+                        <version version="{{ $version->toJson() }}"></version>
                     @empty
                         You haven't added any file versions yet
                     @endforelse

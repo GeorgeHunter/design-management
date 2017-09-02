@@ -35,4 +35,10 @@ class FileVersionsController extends Controller
         return back();
 
     }
+
+    public function destroy(FileVersion $file)
+    {
+        $file->delete();
+        return response()->json('success', 200);
+    }
 }

@@ -20,4 +20,9 @@ class File extends Model
     {
         return '/files/' . $this->id;
     }
+
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'commentable');
+    }
 }

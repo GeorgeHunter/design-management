@@ -9,7 +9,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading level spread">
                 <div>Files</div>
-                <button type="button" class="btn btn-default btn-sm" aria-label="Right Align" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-default btn-sm" aria-label="Right Align" data-toggle="modal" data-target="#addProjectModal">
                     <span class="glyphicon glyphicon-plus text-primary" aria-hidden="true"></span>
                 </button>
             </div>
@@ -18,7 +18,7 @@
                     @forelse ($project->files as $file)
                         <a href="{{ $file->path() }}" class="list-group-item">{{ $file->name }} - {{ $file->description }}</a>
                     @empty
-                        You haven't added any files to this project yet - <span class="text-primary interactive" data-toggle="modal" data-target="#myModal">click here to add one</span>
+                        You haven't added any files to this project yet - <span class="text-primary interactive" data-toggle="modal" data-target="#addProjectModal">click here to add one</span>
                     @endforelse
                 </div>
             </div>
@@ -31,7 +31,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form method="POST" action="/files/new">
